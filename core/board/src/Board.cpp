@@ -38,7 +38,7 @@ void Board::clear()
     board_.fill(tmp);
 }
 
-std::array<std::array<CellStatus, 3>, 3>  Board::board() const
+std::array<std::array<CellStatus, 3>, 3>  Board::boardData() const
 {
     return board_;
 }
@@ -50,7 +50,7 @@ unsigned int Board::size() const
 
 bool Board::hasEmptyCell()
 {
-    for (auto x: board())
+    for (auto x: board_)
     {
         for (auto y: x)
         {

@@ -19,7 +19,7 @@ class Board : public QObject
 public :
     explicit Board();
 
-    std::array<std::array<CellStatus, 3>, 3>  board() const;
+    std::array<std::array<CellStatus, 3>, 3>  boardData() const;
 
     unsigned int size() const;
 
