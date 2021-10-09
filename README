@@ -1,0 +1,21 @@
+You can build the project by using following steps. 
+
+Assuming that user has already entered the project folder.
+
+$ mkdir -p build
+$ cd build
+$ cmake -DCMAKE_PREFIX_PATH=<path of Qt> ..
+$ make
+$ ./drawer
+
+The instructions above for the users who is not installed Qt packages into the system paths. If you have already installed Qt package into system paths, you can follow the steps below.
+
+$ mkdir -p build
+$ cd build
+$ cmake ..
+$ make
+$ ./drawer
+
+
+
+

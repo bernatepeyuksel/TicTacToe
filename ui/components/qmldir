@@ -1,0 +1,4 @@
+depends QtQuick.Controls 2.11
+
+DrawingField 1.0 DrawingField.qml
+ColorBar 1.0 ColorBar.qml
