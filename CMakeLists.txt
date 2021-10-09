@@ -42,17 +42,16 @@ add_dependencies(unittests GoogleTest)
 
 add_subdirectory(core)
 
-set(GTEST_ROOT ${CMAKE_BINARY_DIR}/google-test)
-
-find_package(GTest REQUIRED)   
-
 target_link_libraries(
         unittests
         PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick
-        GTest::Main
+        ${CMAKE_BINARY_DIR}/google-test/lib/libgtest_main.a
+        ${CMAKE_BINARY_DIR}/google-test/lib/libgtest.a
     )
+
+target_include_directories(unittests PUBLIC ${CMAKE_BINARY_DIR}/google-test/include)
 
     add_test(
         NAME unittests 
         COMMAND unittests
-    )    
+    )   
