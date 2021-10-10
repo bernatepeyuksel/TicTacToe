@@ -23,9 +23,9 @@ signals:
 
 private:
 
-    int statusToScore(const GameStatus& status);
+    int statusToScore(const GameStatus& status) const;
 
-    int miniMax(Board* board, int depth, bool isMax);
+    int miniMax(Board* board, int depth, bool isMax) const;
 
     void bestMove(Board* board);
 };

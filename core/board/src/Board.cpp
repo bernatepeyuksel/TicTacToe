@@ -11,14 +11,20 @@ Board::Board()
     clear();
 }
 
-unsigned int Board::getWidth() const
+bool Board::operator== (const Board& boardOther)
 {
-    return size_;
-}
+    for(unsigned int i=0; i < board_.size();  i++)
+    {
+        for(unsigned int j=0; j < board_.size();  j++)
+        {
+            if(board_[i][j] != boardOther.get(i,j))
+            {
+                return false;
+            }
+        }
+    }
 
-unsigned int Board::getHeight() const
-{
-    return size_;
+    return true;
 }
 
 void  Board::set(const unsigned int &x, const unsigned int &y, CellStatus status)
@@ -26,7 +32,7 @@ void  Board::set(const unsigned int &x, const unsigned int &y, CellStatus status
     board_[x][y] = status;
 }
 
-CellStatus Board::get(const unsigned int &x, const unsigned int &y)
+CellStatus Board::get(const unsigned int &x, const unsigned int &y) const
 {
     return board_[x][y];
 }
@@ -38,17 +44,12 @@ void Board::clear()
     board_.fill(tmp);
 }
 
-std::array<std::array<CellStatus, 3>, 3>  Board::boardData() const
-{
-    return board_;
-}
-
 unsigned int Board::size() const
 {
     return size_;
 }
 
-bool Board::hasEmptyCell()
+bool Board::hasEmptyCell() const
 {
     for (auto x: board_)
     {
@@ -63,7 +64,7 @@ bool Board::hasEmptyCell()
     return false;
 }
 
-GameStatus Board::status()
+GameStatus Board::status() const
 {
     // Checking Rows for X or O victory.
     for (unsigned int row = 0; row < size(); row++)

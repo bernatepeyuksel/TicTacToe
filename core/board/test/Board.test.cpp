@@ -18,9 +18,10 @@ TEST(Board, clearCheckIfAllEmptyCell) {
   boardFull.set(2,1, CellStatus::Human);
   boardFull.set(2,2, CellStatus::Computer);
   // Act
-  boardFull.clear();
 
-  bool clear = boardFull.boardData() == boardEmpty.boardData() ? true : false;
+  boardFull.clear();
+  bool clear = boardFull == boardEmpty ? true : false;
+
   // Assert
   EXPECT_EQ(clear, true);
 }

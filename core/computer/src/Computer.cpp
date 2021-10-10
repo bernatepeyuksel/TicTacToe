@@ -2,7 +2,7 @@
 #include <algorithm>
 #include "Computer.h"
 
-int Computer::statusToScore(const GameStatus& status)
+int Computer::statusToScore(const GameStatus& status) const
 {
     switch (status)
     {
@@ -16,7 +16,7 @@ int Computer::statusToScore(const GameStatus& status)
     }
 }
 
-int Computer::miniMax(Board* board, int depth, bool isMax)
+int Computer::miniMax(Board* board, int depth, bool isMax) const
 {
     GameStatus status = board->status();
 

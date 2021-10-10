@@ -19,23 +19,19 @@ class Board : public QObject
 public :
     explicit Board();
 
-    std::array<std::array<CellStatus, 3>, 3>  boardData() const;
+    bool operator==(const Board& board2);
 
     unsigned int size() const;
 
-    unsigned int getWidth() const;
-
-    unsigned int getHeight() const;
-
     void set(const unsigned int &x, const unsigned int &y, CellStatus status);
 
-    CellStatus get(const unsigned int &x, const unsigned int &y);
+    CellStatus get(const unsigned int &x, const unsigned int &y) const;
 
     Q_INVOKABLE void clear();
 
-    bool hasEmptyCell();
+    bool hasEmptyCell() const;
 
-    GameStatus status();
+    GameStatus status() const;
 
 
 private:
