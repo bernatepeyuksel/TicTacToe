@@ -63,9 +63,11 @@ Rectangle {
                       id: cellArea
                       anchors.fill: parent
                       onClicked: {
-                          ticField.text = "X"
-                          humanPlay(index)
-
+                          if(""==ticField.text)
+                          {
+                              ticField.text = "X"
+                              humanPlay(index)
+                          }
                       }
                     }
                     Connections {

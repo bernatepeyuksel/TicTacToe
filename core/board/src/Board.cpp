@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QBuffer>
 #include <QUrl>
+#include <exception>
 
 
 Board::Board()
@@ -29,11 +30,22 @@ bool Board::operator== (const Board& boardOther)
 
 void  Board::set(const unsigned int &x, const unsigned int &y, CellStatus status)
 {
+    if(x >=size() || y >=size())
+    {
+        QString errorMessage = "Not in the board boundary, x: " + QString::number(x) + " y: " + QString::number(y);
+        qCritical() << errorMessage;
+    }
     board_[x][y] = status;
 }
 
 CellStatus Board::get(const unsigned int &x, const unsigned int &y) const
 {
+
+    if(x >=size() || y >=size())
+    {
+        QString errorMessage = "Not in the board boundary, x: " + QString::number(x) + " y: " + QString::number(y);
+        qCritical() << errorMessage;
+    }
     return board_[x][y];
 }
 

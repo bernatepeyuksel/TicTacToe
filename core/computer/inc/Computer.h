@@ -21,12 +21,12 @@ signals:
 
      void gameOver(const QString &result);
 
-private:
+protected:
 
     int statusToScore(const GameStatus& status) const;
 
-    int miniMax(Board* board, int depth, bool isMax) const;
+    int miniMax(Board& board, bool isMax) const;
 
-    void bestMove(Board* board);
+     QPair<unsigned int, unsigned int> bestMove(Board& board);
 };
 
