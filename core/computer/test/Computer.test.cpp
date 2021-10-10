@@ -9,7 +9,7 @@ class ComputerUnitTest: public ::testing::Test, public Computer {
 
 //************* BestMove Test *************//
 
-TEST_F(ComputerUnitTest, clearCheckIfBestMove) {
+TEST_F(ComputerUnitTest, checkBestMove) {
   // Arrange
     Board board;
     board.set(0,0, CellStatus::Computer);
@@ -23,7 +23,7 @@ TEST_F(ComputerUnitTest, clearCheckIfBestMove) {
     board.set(2,2, CellStatus::Human);
 
     // Act
-    QPair<unsigned int, unsigned int> move = bestMove(&board);
+    QPair<unsigned int, unsigned int> move = bestMove(board);
 
     // Assert
     QPair<unsigned int, unsigned int> bestVal{0,2};
@@ -33,7 +33,7 @@ TEST_F(ComputerUnitTest, clearCheckIfBestMove) {
 
 //************* MiniMax Test *************//
 
-TEST_F(ComputerUnitTest, clearCheckIfMinimax) {
+TEST_F(ComputerUnitTest, checkMinimax) {
   // Arrange
     Board board;
     Computer computer;
@@ -48,7 +48,7 @@ TEST_F(ComputerUnitTest, clearCheckIfMinimax) {
     board.set(2,2, CellStatus::Empty);
 
     // Act
-    int max = miniMax(&board, false);
+    int max = miniMax(board, false);
 
     // Assert
     EXPECT_EQ( max, 0);

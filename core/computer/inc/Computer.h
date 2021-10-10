@@ -1,6 +1,5 @@
 #pragma once
 #include <QObject>
-#include <QVector>
 #include <QString>
 #include "Board.h"
 
@@ -9,7 +8,7 @@ class Computer: public QObject
     Q_OBJECT
 
 public:
-    explicit Computer() = default;
+
 
 public slots:
 

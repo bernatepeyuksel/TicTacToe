@@ -4,7 +4,7 @@
 
 //************* Clear Tests *************//
 
-TEST(Board, clearCheckIfAllEmptyCell) {
+TEST(Board, AllEmptyCellAfterClear) {
   // Arrange
   Board boardEmpty;
   Board boardFull;

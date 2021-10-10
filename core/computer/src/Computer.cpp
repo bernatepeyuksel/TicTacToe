@@ -60,9 +60,9 @@ int Computer::miniMax(Board& board, bool isMax) const
     int bestVal = -1000;
     QPair<unsigned int, unsigned int> bestMove;
 
-    for(unsigned int row=0; row < board.size(); row++)
+    for(unsigned int row=0; row < board.size(); ++row)
     {
-        for(unsigned int elem=0; elem < board.size(); elem++)
+        for(unsigned int elem=0; elem < board.size(); ++elem)
         {
             // Check if cell is empty
             if(board.get(row,elem) == CellStatus::Empty )
@@ -95,8 +95,7 @@ void Computer::play(Board* board)
 {
     if(nullptr == board)
     {
-        qCritical() <<"Board null! ";
-        return;
+        qFatal("Board null!");
     }
 
     auto [x, y] = bestMove(*board);

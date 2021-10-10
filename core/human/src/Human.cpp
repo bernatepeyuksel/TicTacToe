@@ -1,5 +1,4 @@
 ﻿#include <QDebug>
-#include <algorithm>
 #include "Human.h"
 
 
@@ -9,8 +8,7 @@ void Human::play(Board* board, const unsigned int &x, const unsigned int &y)
 {
     if(nullptr == board)
     {
-        qCritical() <<"Board null! ";
-        return;
+        qFatal("Board null!");
     }
 
     board->set(x,y, CellStatus::Human);

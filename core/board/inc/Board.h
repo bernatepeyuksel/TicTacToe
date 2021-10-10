@@ -1,9 +1,5 @@
 #pragma once
 #include <QObject>
-#include <QQuickPaintedItem>
-#include <QImage>
-#include <QPixmap>
-#include <QSize>
 #include <QVector>
 #include <QString>
 #include "CellStatus.h"
@@ -37,7 +33,7 @@ public :
 private:
 
     unsigned int size_{3};
-    std::array<std::array<CellStatus, 3>, 3> board_ = {};
+    std::array<std::array<CellStatus, 3>, 3> board_{};
 
 };
 

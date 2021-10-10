@@ -1,10 +1,5 @@
 ﻿#include "Board.h"
-#include <QPainter>
-#include <QRadialGradient>
 #include <QDebug>
-#include <QBuffer>
-#include <QUrl>
-#include <exception>
 
 
 Board::Board()
@@ -32,8 +27,7 @@ void  Board::set(const unsigned int &x, const unsigned int &y, CellStatus status
 {
     if(x >=size() || y >=size())
     {
-        QString errorMessage = "Not in the board boundary, x: " + QString::number(x) + " y: " + QString::number(y);
-        qCritical() << errorMessage;
+        qFatal("x or y is not in the board boundary");
     }
     board_[x][y] = status;
 }
@@ -43,8 +37,7 @@ CellStatus Board::get(const unsigned int &x, const unsigned int &y) const
 
     if(x >=size() || y >=size())
     {
-        QString errorMessage = "Not in the board boundary, x: " + QString::number(x) + " y: " + QString::number(y);
-        qCritical() << errorMessage;
+        qFatal("x or y is not in the board boundary");
     }
     return board_[x][y];
 }
@@ -79,7 +72,7 @@ bool Board::hasEmptyCell() const
 GameStatus Board::status() const
 {
     // Checking Rows for X or O victory.
-    for (unsigned int row = 0; row < size(); row++)
+    for (unsigned int row = 0; row < size(); ++row)
     {
         if (get(row, 0) == get(row, 1)&&
             get(row, 1) == get(row, 2))
@@ -92,7 +85,7 @@ GameStatus Board::status() const
     }
 
     // Check Columns for X or O victory.
-    for (unsigned int col = 0; col < size(); col++)
+    for (unsigned int col = 0; col < size(); ++col)
     {
         if (get(0,col) == get(1,col)&&
             get(1,col) == get(2,col))
